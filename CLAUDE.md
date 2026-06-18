@@ -8,16 +8,16 @@ Frontend: React + TypeScript (Vite). Backend: Node.js + TypeScript (Express).
 
 ## Status
 
-Scaffolding in progress per the build plan. Update this file's Commands
-section with real install/dev/build/test/lint commands as soon as the
-workspace's `package.json` files exist.
+Core build complete: `packages/shared`, `apps/api`, and `apps/web` are all
+scaffolded, wired together, and passing `turbo run check-types lint build
+test` from the repo root. `packages/ui` was never created — apps/web's
+components live in `apps/web/src/components` directly.
 
 ## Structure
 
 - `apps/web` — React frontend (Vite)
 - `apps/api` — Node backend (Express)
 - `packages/shared` — types/contracts shared by web & api (single source of truth)
-- `packages/ui` — shared React components
 - `packages/eslint-config` — shared ESLint flat config
 - `packages/typescript-config` — shared tsconfig presets
 
@@ -42,6 +42,11 @@ persistence on the backend.
 
 ## Commands
 
-Not yet established — no `package.json` exists in this repo. Once the
-frontend/backend are scaffolded, replace this section with the actual
-install/dev/build/test/lint commands for each package.
+Run from the repo root (pnpm + turbo drive every package):
+
+- `pnpm install` — install all workspace dependencies.
+- `pnpm dev` — run `apps/api` (port 4000) and `apps/web` (port 5173) together via `turbo dev`.
+- `pnpm build` — build all packages (`turbo build`).
+- `pnpm lint` / `pnpm check-types` / `pnpm test` — run across the whole workspace.
+- Scope any of the above to one package: `pnpm --filter @pokemon/api <script>` / `pnpm --filter @pokemon/web <script>`.
+- Single test file in apps/api: `pnpm --filter @pokemon/api exec vitest run src/favorites/store.test.ts`.
