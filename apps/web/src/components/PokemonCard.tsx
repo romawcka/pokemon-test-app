@@ -12,7 +12,7 @@ export function PokemonCard({ pokemon, isFavorite, onSelect }: PokemonCardProps)
     <button
       type="button"
       onClick={() => onSelect(pokemon.id)}
-      className="flex flex-col items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      className="flex cursor-pointer flex-col items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
     >
       <div className="flex w-full justify-end">
         <FavoriteButton id={pokemon.id} isFavorite={isFavorite} />

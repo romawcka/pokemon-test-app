@@ -25,6 +25,16 @@ export function PokemonDetailModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
+  useEffect(() => {
+    if(id) {
+      document.body.style.overflow = 'hidden'      
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  },[id])
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
