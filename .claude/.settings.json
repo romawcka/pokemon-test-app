@@ -4,18 +4,13 @@
       "Bash(git:*)",
       "Bash(pnpm run:*)",
       "Bash(pnpm ci)",
+      "Bash(pnpm install *)",
       "Bash(npx tsc:*)",
       "Bash(npx next *)",
       "Read",
       "Edit"
     ],
     "ask": ["Bash(git push:*)", "WebFetch"],
-    "deny": [
-      "Read(.env)",
-      "Read(.env.*)",
-      "Read(.env.local)",
-      "Bash(cat .env:*)",
-      "Bash(rm -rf:*)"
-    ]
+    "deny": ["Read(.env)", "Read(.env.*)", "Read(.env.local)", "Bash(cat .env:*)", "Bash(rm -rf:*)"]
   }
 }

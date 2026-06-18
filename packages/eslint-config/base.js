@@ -11,6 +11,12 @@ export const baseConfig = [
     languageOptions: {
       globals: { ...globals.node },
     },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
   },
   {
     ignores: ["dist/**", "build/**", "node_modules/**"],
