@@ -10,6 +10,10 @@ export function createApp() {
   app.use(cors({ origin: process.env.WEB_ORIGIN ?? "http://localhost:5173" }));
   app.use(express.json());
 
+  app.get("/", (_req, res) => {
+    res.redirect(302, "/api/pokemon");
+  });
+
   app.use("/api/pokemon", pokemonRouter);
   app.use("/api/favorites", favoritesRouter);
 
