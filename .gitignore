@@ -6,4 +6,4 @@ build
 .env
 .env.local
 .DS_Store
-data/favorites.json
+**/data/favorites.json
